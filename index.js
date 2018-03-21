@@ -11,7 +11,7 @@ module.exports = (robot) => {
   robot.on('push', push)
 
   // event(s): push
-  async function push (context) {
+  async function push(context) {
     if (context.payload.ref.split('\\')[2] === context.payload.repositories.master_branch) {
       robot.log('push to the master branch')
       context.github.repos.createDeployment(context.repo({
